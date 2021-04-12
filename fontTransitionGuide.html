@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+
+        #board{
+            width:700px;
+            height: 400px;
+            padding: 20px;
+            background-color: rgb(61, 34, 58);
+            margin:200px auto;
+            transition: 2s;
+        }
+
+        #board:hover .box{
+            transform: rotateZ(3deg);
+        }
+
+        #board .box{
+            width: 230px;
+            height: 100px;
+            margin: 0 auto;
+            transition: 2s;
+        }
+
+        .box:hover .top{
+            border-bottom: 2px rgb(247, 63, 139) solid;
+            transform: scale(1.1,1);
+        }
+
+        .box:hover .bottom{
+            border-top: 2px rgb(247, 63, 139) solid;
+            transform: scale(1.1,1);
+        }
+
+
+        .box:hover .top p{
+            left:60px;
+            color: rgb(243, 187, 210);
+        }
+
+        .box:hover .bottom p{
+            left:70px;
+            color: rgb(243, 187, 210);
+        }
+
+
+        #board .box .top,.bottom{
+            width: 100%;
+            height: 50%;
+            position: relative;
+            overflow: hidden;
+            padding-left: 50px;
+        }
+
+        p{  
+            position: absolute;
+            color: rgb(247, 63, 139);
+            font-size: 50px;
+            font-family:HGYT2_CNKI;
+            line-height: 50px;            
+        }
+
+        .top p{
+            top:19px;
+        }
+
+        .bottom p{
+            bottom:31px;
+        }
+
+
+       
+        
+        
+
+
+    </style>
+</head>
+<body>
+    <div id="board">
+        <div class="box">
+            <div class="top">
+                <p>HOME</p>
+            </div>
+            <div class="bottom">
+                <p>HOME</p>
+            </div>
+        </div>
+        <div class="box">
+            <div class="top">
+                <p>ABOUT</p>
+            </div>
+            <div class="bottom">
+                <p>ABOUT</p>
+            </div>
+        </div>
+        <div class="box">
+            <div class="top">
+                <p>WORK</p>
+            </div>
+            <div class="bottom">
+                <p>WORK</p>
+            </div>
+        </div>
+        <div class="box">
+            <div class="top">
+                <p>CONTENT</p>
+            </div>
+            <div class="bottom">
+                <p>CONTENT</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

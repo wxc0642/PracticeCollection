@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+    .parent{width: 100px; height: 100px;position: relative;margin:600px auto;animation: rotateBall infinite 4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform-style: preserve-3d;perspective: 1000px;}
+
+    .parent div[class^="box"]{position: absolute;box-sizing: border-box;backface-visibility: hidden;}
+
+    .box{left: 0;top:0;}
+    .box2{left: 100px;top:0;transform-origin: left;transform: rotateY(90deg);}
+    .box3{left: -100px;top:0;transform-origin: right;transform: rotateY(-90deg);}
+    .box4{left: 0;top: -100px;transform-origin: bottom;transform: rotateX(90deg);}
+    .box5{left: 0;top:100px;transform-origin: top;transform: rotateX(-90deg);}
+    .box6{left: 0;top: 0;transform: translateZ(-100px) rotateY(180deg);}
+    
+    /* .parent:hover{
+        transform: rotate3d(1,1,1,360deg);
+    } */
+
+    @keyframes rotateBall{
+        0%{transform: translateX(0) translateY(0) rotate(0);}
+        100%{transform: translateX(200px) translateY(-400px) rotate3d(1,1,1,720deg);}
+    }
+
+
+
+
+
+    .box{width: 100px;height: 100px;border:3px black solid;border-radius: 5px;display: grid;place-items: center center;}
+    .box div{width: 40%;height: 40%;border-radius: 50%;background: red;}
+
+    .box2{width: 100px;height: 100px;border:3px black solid;border-radius: 5px;display: grid;
+    grid-template-rows: repeat(2,1fr);
+    grid-template-columns: repeat(2,1fr);}
+    .box2 div{width: 60%;height: 60%;border-radius: 50%;background-color: black;place-self: center center;}
+    .box2 div:nth-child(2){grid-column: 2/3;grid-row: 2/3;}
+
+
+    .box3{width: 100px;height: 100px;border:3px black solid;border-radius: 5px;display: grid;
+    grid-template-rows:repeat(3,1fr);
+    grid-template-columns: repeat(3,1fr);}
+    .box3 div{width: 90%;height: 90%;border-radius: 50%;background-color: black;place-self: center center;}
+    .box3 div:nth-child(2){grid-column: 2/3;grid-row: 2/3;}
+    .box3 div:nth-child(3){grid-column: 3/4;grid-row: 3/4;}
+    
+
+    .box4{width: 100px;height: 100px;border:3px solid black;border-radius: 5px;display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);}
+    .box4 div{width: 60%;height: 60%;border-radius: 50%;background-color: black;place-self: center center;}
+
+    .box5{width: 100px;height: 100px;border:3px solid black;border-radius: 5px;display: grid;
+    grid-template: 
+    "a1 a2 a3" 1fr
+    "a4 a5 a6" 1fr
+    "a7 a8 a9" 1fr
+    /1fr 1fr 1fr;}
+    .box5 div{width: 90%;height: 90%;border-radius: 50%;background-color: black;}
+    .box5 div:nth-child(1){grid-area: a1;}
+    .box5 div:nth-child(2){grid-area: a3;}
+    .box5 div:nth-child(3){grid-area: a5;}
+    .box5 div:nth-child(4){grid-area: a7;}
+    .box5 div:nth-child(5){grid-area: a9;}
+
+    .box6{width: 100px;height: 100px;border-radius: 5px;border:3px black solid;display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(3,1fr);}
+
+    .box6 div{width: 60%;height: 90%;border-radius: 50%;background-color: black;place-self: center center;}
+    
+    </style>
+</head>
+<body>
+    <div class="parent">
+    
+        <div class="box">
+            <div></div>
+        </div>
+    
+        <div class="box2">
+            <div></div>
+            <div></div>
+        </div>
+    
+        <div class="box3">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    
+        <div class="box4">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    
+        <div class="box5">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    
+        <div class="box6">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+    </div>
+</body>
+</html>

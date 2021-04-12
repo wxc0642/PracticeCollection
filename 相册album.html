@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+    #album{
+        width: 697px;
+        height: 253px;
+        border:4px rgb(247, 242, 199) solid;
+        position: relative;
+        margin:200px auto;
+        overflow: hidden;
+        box-shadow: 0 0 4px 4px greenyellow;
+    }
+
+    .picture{
+        position: absolute;
+        height: 253px;
+        width: 497px;
+        box-sizing: border-box;
+        opacity: 0.8;
+    }
+
+
+
+    #album .picture:nth-child(1){left:0px;top:0;}
+    #album .picture:nth-child(2){left:40px;top:0;}
+    #album .picture:nth-child(3){left:80px;top:0;}
+    #album .picture:nth-child(4){left:120px;top:0;}
+    #album .picture:nth-child(5){left:160px;top:0;}
+    #album .picture:nth-child(6){left:200px;top:0;}
+
+
+    #album .picture .textBox{
+        position: absolute;
+        width: 150px;
+        height: 40px;
+        border-radius: 10px;
+        background-color: rgba(228, 236, 155, 0.87);
+        text-align: center;
+        line-height: 40px;
+        color: white;   
+        top:106.5px;
+        left: 173.5px;  
+        animation: dropBox 2s forwards;
+    }
+
+    .textBox::after{
+        content: "My ablum~";
+    }
+
+    @keyframes dropBox{
+        0%{transform: translateY(-140px);}
+        70%{transform: translateY(20px);}
+        90%{transform: translateY(-10px);}
+        100%{transform: translateY(0);}
+    }
+
+
+    #chosen{
+        opacity: 1;
+    }
+   
+    /* #chosen~div{
+        left:
+    } */
+
+    </style>
+</head>
+<body>
+    <div id="album">
+        <div class="picture">
+             <img src="images/极速狂欢.jpg" alt="">
+             <div></div>
+        </div>
+        <div class="picture">
+             <img src="images/竞速大奖赛.jpeg" alt="">
+             <div></div>
+        </div>
+        <div class="picture">
+             <img  src="images/六人骑宠.jpeg" alt="">
+             <div></div>
+        </div>
+        <div class="picture">
+             <img src="images/平台冠军.jpeg" alt="">
+             <div></div>
+        </div>
+        <div class="picture">
+             <img src="images/限时五折.jpg" alt="">
+             <div></div>
+        </div>
+        <div class="picture" id="chosen">
+             <img src="images/心属白月光.jpeg" alt="">
+             <div></div>
+        </div>    
+    </div>
+
+   
+   <script>
+       //给picture添加索引
+       var album=document.getElementsByClassName("picture");
+       for(var j=0;j<album.length;j++){
+           album[j].index=j;
+       }
+
+
+       //移动规则
+       for(var i=0;i<album.length;i++){
+           album[i].onclick=function picSlider(){
+               console.log(i);
+               var chosen=document.getElementById("chosen");
+               var chosenIndex=chosen.index;
+               if(chosen){
+                   chosen.removeAttribute("id","chosen");
+                   chosen.lastElementChild.removeAttribute("class","textBox");
+                   //若是index比this.index大，说明后面已经有过移动了,只需把现在未移动的移开，后面不变
+                   if(chosenIndex>this.index){
+                       for(var k=this.index+1;k<chosenIndex+1;k++){
+                            var chosenAfter=document.getElementsByClassName("picture")[k];
+                            var left_num=parseInt(getComputedStyle(chosenAfter).left.replace("px",""))+457;
+                            console.log(left_num);
+                            var left=left_num+"px";
+                            chosenAfter.style.left=left;
+                        }
+                   }else if(chosenIndex<this.index){
+                       //chosenIndex比this.index小，把之前移动的给返回来就行
+                       for(var k=chosenIndex+1;k<this.index+1;k++){
+                            var chosenAfter=document.getElementsByClassName("picture")[k];
+                            var left_num=parseInt(getComputedStyle(chosenAfter).left.replace("px",""))-457;
+                            console.log(left_num);
+                            var left=left_num+"px";
+                            chosenAfter.style.left=left;
+                        }
+                   }
+               }               
+               this.setAttribute("id","chosen");
+               this.lastElementChild.setAttribute("class","textBox");
+
+            //    if(this.index!==5){
+            //        for(var k=this.index+1;k<album.length;k++){
+            //            var chosenAfter=document.getElementsByClassName("picture")[k];
+            //            var left_num=parseInt(getComputedStyle(chosenAfter).left.replace("px",""))+457;
+            //            console.log(left_num);
+            //            var left=left_num+"px";
+            //            chosenAfter.style.left=left;
+            //        }                   
+            //    }
+           }
+       }
+   </script>
+
+
+</body>
+</html>

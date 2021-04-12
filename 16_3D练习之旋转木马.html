@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin:0px;padding:0px;}
+        img{width: 200px;height: 102px;}
+        .parent{width: 400px;height: 200px;margin:50px auto;perspective: 1000px;}
+        ul{list-style: none;width: 200px;height: 102px;position: relative;margin:49px auto;transform-style: preserve-3d;transition: 5s;}
+        ul li{width: 200px;height: 102px;position: absolute;top:0px;left: 0px;}
+
+        ul li:nth-child(1){transform:  rotateY(0deg) translateZ(200px);}   
+        ul li:nth-child(2){transform:  rotateY(60deg) translateZ(200px);}
+        ul li:nth-child(3){transform:  rotateY(120deg)   translateZ(200px);}
+        ul li:nth-child(4){transform:  rotateY(180deg)   translateZ(200px);}
+        ul li:nth-child(5){transform:  rotateY(240deg)   translateZ(200px);}
+        ul li:nth-child(6){transform:  rotateY(300deg)   translateZ(200px);}
+
+
+        .parent:hover ul{transform: rotateY(360deg);transform-origin: center center 0px;}
+        
+
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <ul>
+            <li>
+                <img src="images/六人骑宠.jpeg" alt="">
+            </li>
+            <li>
+                <img src="images/周末宝箱五折.jpg" alt="">
+            </li>
+            <li>
+                <img src="images/平台冠军.jpeg" alt="">
+            </li>
+            <li>
+                <img src="images/心属白月光.jpeg" alt="">
+            </li>
+            <li>
+                <img src="images/极速狂欢.jpg" alt="">
+            </li>
+            <li>
+                <img src="images/永久S车.jpeg" alt="">
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
